@@ -8,7 +8,7 @@ import PrimaButton from "@/Components/PrimaryButton.vue";
 
 const form = ref({
     claPais: "+52",
-    telefono: "2224292024",
+    telefono: "",
     mensaje: ""
 })
 
