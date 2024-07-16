@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PersonalController;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -47,4 +48,14 @@ Route::prefix("SendMesa")
         // return $phone;
         return mensa_twilio($phone, $request->mensaje);
     });
+});
+
+Route::prefix("Personal")
+->middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])
+->group(function(){
+    Route::get("/", [PersonalController::class, "index"])->name('Personal');
 });
