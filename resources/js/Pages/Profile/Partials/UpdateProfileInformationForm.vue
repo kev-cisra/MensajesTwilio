@@ -78,11 +78,11 @@ const clearPhotoFileInput = () => {
 <template>
     <FormSection @submitted="updateProfileInformation">
         <template #title>
-            Profile Information
+            Información de Perfil
         </template>
 
         <template #description>
-            Update your account's profile information and email address.
+            Actualiza el nombre del perfil.
         </template>
 
         <template #form>
@@ -113,7 +113,7 @@ const clearPhotoFileInput = () => {
                 </div>
 
                 <SecondaryButton class="mt-2 me-2" type="button" @click.prevent="selectNewPhoto">
-                    Select A New Photo
+                    Selecciona una nueva imagen
                 </SecondaryButton>
 
                 <SecondaryButton
@@ -152,6 +152,7 @@ const clearPhotoFileInput = () => {
                     class="mt-1 block w-full"
                     required
                     autocomplete="username"
+                    disabled
                 />
                 <InputError :message="form.errors.email" class="mt-2" />
 
@@ -179,11 +180,11 @@ const clearPhotoFileInput = () => {
 
         <template #actions>
             <ActionMessage :on="form.recentlySuccessful" class="me-3">
-                Saved.
+                Guardado.
             </ActionMessage>
 
             <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
+                Guardar
             </PrimaryButton>
         </template>
     </FormSection>
