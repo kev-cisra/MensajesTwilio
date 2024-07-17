@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Personal;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Illuminate\Support\Facades\Validator;
 
 class PersonalController extends Controller
 {
@@ -16,21 +15,22 @@ class PersonalController extends Controller
 
     public function SavePerso(Request $request){
         // return $request;
-        Validator::make($request, [
-            'nombre' => ['required', 'string', 'max:80'],
-            'ApPat' => ['required', 'string', 'max:80'],
-            'ApMat' => ['required', 'string', 'max:80'],
-            'clavePais' => ['required', 'string', 'max:3'],
-            'Telefono' => ['required', 'string', 'min:10', 'max:10'],
-        ])->validate();
+        $request->validate([
+            'Nombre' => 'required|string|max:80',
+            'ApPat' => 'required|string|max:80',
+            'ApMat' => 'required|string|max:80',
+            'ClaPais' => 'required|string|max:4',
+            'Telefono' => 'required|integer|min:1000000000|max:9999999999',
+        ]);
 
-        $per = new Personal;
-        $per->nombre = $request->Nombre;
-        $per->ApPat = $request->ApPat;
-        $per->ApMat = $request->ApMat;
-        $per->clavePais = $request->ClaPais;
-        $per->Telefono = $request->Telefono;
-        $per->save();
+        // $per = new Personal;
+        // $per->nombre = $request->Nombre;
+        // $per->ApPat = $request->ApPat;
+        // $per->ApMat = $request->ApMat;
+        // $per->clavePais = $request->ClaPais;
+        // $per->Telefono = $request->Telefono;
+        // $per->save();
+
         return "Ok";
     }
 }

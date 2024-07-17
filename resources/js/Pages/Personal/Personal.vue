@@ -31,7 +31,7 @@ import axios from 'axios';
             console.log(resp.data);
         })
         .catch(err => {
-            console.log(err);
+            form.value.errors = err.response.data.errors
         })
     }
 
@@ -73,7 +73,7 @@ import axios from 'axios';
 
         <Modal :show="form.vMod" @close="ShowModal()">
             <div class="m-5"><h3>Carga de Personal</h3></div>
-
+            
             <div class="flex flex-wrap justify-center items-center gap-5 my-5">
                 <div class="w-[90%] md:w-[43%]">
                     <Label for="tele" value="Nombre" />
