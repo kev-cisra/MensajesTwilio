@@ -58,4 +58,6 @@ Route::prefix("Personal")
 ])
 ->group(function(){
     Route::get("/", [PersonalController::class, "index"])->name('Personal');
+
+    Route::post("SavePerso", [PersonalController::class, "SavePerso"])->name("SavePerso");
 });
