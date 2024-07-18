@@ -34,7 +34,7 @@ const submit = () => {
 
     <AuthenticationCard>
         <template #logo>
-            <AuthenticationCardLogo />
+            <AuthenticationCardLogo class="text-8xl"/>
         </template>
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
@@ -82,7 +82,7 @@ const submit = () => {
                 </Link> -->
 
                 <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
+                    Acceder
                 </PrimaryButton>
             </div>
         </form>

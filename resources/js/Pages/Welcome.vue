@@ -1,5 +1,6 @@
 <script setup>
 import { useForm, Link } from '@inertiajs/vue3';
+import ApplicationMark from '@/Components/ApplicationMark.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
@@ -30,7 +31,8 @@ const submit = () => {
 
 <template>
     <section class="flex justify-center items-center min-h-screen Fondo">
-        <div class="border-4 rounded-xl border-gray-400 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-90 w-[70vw] h-[80vh] lg:w-[30vw] lg:h-[35vh] flex justify-center items-center">
+        <div class="border-4 rounded-xl border-gray-400 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-90 w-[70vw] h-[80vh] lg:w-[30vw] lg:h-[35vh] flex flex-wrap justify-center items-center">
+            <ApplicationMark class="text-8xl"/>
             <form @submit.prevent="submit" class="w-[90%]">
                 <div>
                     <InputLabel for="email" value="Email" />
@@ -61,7 +63,7 @@ const submit = () => {
                 
                 <div class="flex justify-center">
                     <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                        Entrar
+                        Acceder
                     </PrimaryButton>
                 </div>
             </form>
