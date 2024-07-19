@@ -31,7 +31,7 @@ const submit = () => {
 
 <template>
     <section class="flex justify-center items-center min-h-screen Fondo">
-        <div class="border-4 rounded-xl border-gray-400 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-90 w-[70vw] h-[80vh] lg:w-[30vw] lg:h-[35vh] flex flex-wrap justify-center items-center">
+        <div class="border-4 rounded-xl border-gray-400 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-90 w-[70vw] h-[80vh] lg:w-[30vw] lg:h-[53vh] flex flex-wrap justify-center items-center">
             <ApplicationMark class="text-8xl"/>
             <form @submit.prevent="submit" class="w-[90%]">
                 <div>
