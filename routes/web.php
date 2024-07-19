@@ -59,5 +59,12 @@ Route::prefix("Personal")
 ->group(function(){
     Route::get("/", [PersonalController::class, "index"])->name('Personal');
 
+    // Consulta la informacion del personal
+    Route::get("ConsPersonal", [PersonalController::class, "ConsPersonal"])->name("ConsPersonal");
+
+    // guarda informacion del personal
     Route::post("SavePerso", [PersonalController::class, "SavePerso"])->name("SavePerso");
+
+    // Eliminar Persopnal
+    Route::delete("DeletPer/{id}", [PersonalController::class, "DeletPer"])->name("DeletPer");
 });
