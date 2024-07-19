@@ -13,6 +13,14 @@ class PersonalController extends Controller
         return Inertia::render("Personal/Personal");
     }
 
+    // Consulta informacion del personal
+    public function ConsPersonal(){
+        $per = Personal::get();
+
+        return $per;
+    }
+
+    // Guardar personal
     public function SavePerso(Request $request){
         // return $request;
         $request->validate([
@@ -23,14 +31,20 @@ class PersonalController extends Controller
             'Telefono' => 'required|integer|min:1000000000|max:9999999999',
         ]);
 
-        // $per = new Personal;
-        // $per->nombre = $request->Nombre;
-        // $per->ApPat = $request->ApPat;
-        // $per->ApMat = $request->ApMat;
-        // $per->clavePais = $request->ClaPais;
-        // $per->Telefono = $request->Telefono;
-        // $per->save();
+        Personal::updateOrCreate(['id' => $request->id], [
+            "nombre" => $request->Nombre,
+            "ApPat" => $request->ApPat,
+            "ApMat" => $request->ApMat,
+            "clavePais" => $request->ClaPais,
+            "Telefono" => $request->Telefono
+        ]);
 
         return "Ok";
+    }
+
+    // Elimiona el personal
+    public function DeletPer($id){
+        Personal::find($id)->delete();
+        return "ok";
     }
 }

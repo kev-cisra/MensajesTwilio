@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("ApPat", 80);
             $table->string("ApMat", 80);
             $table->string("clavePais", 10);
-            $table->integer("Telefono");
+            $table->string("Telefono");
 
             $table->softDeletes();
             $table->timestamps();
