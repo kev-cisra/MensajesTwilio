@@ -6,6 +6,9 @@
     import BtnRed from "@/Components/BtnRed.vue";
     import BtnPrm from "@/Components/PrimaryButton.vue";
     import axios from 'axios';
+  
+    import useGlobales from "@/mixins/useGlobal";
+    const { alertSuccess } = useGlobales();
 
     const props = defineProps({
         formProp: {
@@ -34,7 +37,8 @@
 
         axios.post("Personal/SavePerso", datos)
         .then(resp => {
-            limpForm()
+            limpForm(),
+            alertSuccess()
         })
         .catch(err => {
             form.value.errors = err.response.data.errors

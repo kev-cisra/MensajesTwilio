@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
 
             $table->tinyInteger("Estatus");
-            $table->string("Mensaje");
             $table->timestamp("FecEnvio");
+            $table->integer("temporizador");
+            $table->string("Mensaje");
 
             $table->unsignedBigInteger('personal_id')->nullable();
             $table->foreign("personal_id")->references("id")->on("personals")

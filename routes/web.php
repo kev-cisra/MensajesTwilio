@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MensajesController;
 use App\Http\Controllers\PersonalController;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
@@ -36,18 +37,18 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::prefix("SendMesa")
+Route::prefix("Mensajes")
 ->middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])
 ->group(function(){
-    Route::post("/", function(Request $request){
-        $phone = $request->claPais.$request->telefono;
-        // return $phone;
-        return mensa_twilio($phone, $request->mensaje);
-    });
+    // Guarda la infoirmacion de mensaje
+    Route::post("SaveMensa", [MensajesController::class, "SaveMensa"]);
+
+    // Manda mensajes por twilio
+    Route::post("SendMesa", [MensajesController::class, "SendMesaje"]);
 });
 
 Route::prefix("Personal")

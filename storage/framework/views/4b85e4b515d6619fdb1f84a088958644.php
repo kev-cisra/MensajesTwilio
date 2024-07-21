@@ -9,7 +9,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- Scripts -->
         <?php echo app('Tighten\Ziggy\BladeRouteGenerator')->generate(); ?>
         <?php echo app('Illuminate\Foundation\Vite')(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"]); ?>

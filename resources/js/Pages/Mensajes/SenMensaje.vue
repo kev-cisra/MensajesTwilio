@@ -5,6 +5,9 @@
     import Textarea from "@/Components/Textarea.vue";
     import InputError from '@/Components/InputError.vue';
     import PrimaButton from "@/Components/PrimaryButton.vue";
+  
+  import useGlobales from "@/mixins/useGlobal";
+  const { alertSuccess } = useGlobales();
 
     const props = defineProps({
         formMensa: {
@@ -23,8 +26,9 @@
     })
 
     const SendMesa = (datos) => {
-        axios.post("../SendMesa", datos)
+        axios.post("../Mensajes/SendMesa", datos)
         .then(ele => {
+            alertSuccess(),
             emits("actuali")
         })
         .catch(err => {
