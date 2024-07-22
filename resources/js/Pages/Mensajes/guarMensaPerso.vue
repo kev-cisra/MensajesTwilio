@@ -51,8 +51,8 @@
         axios.post("../Mensajes/SaveMensa", datos)
         .then(resp => {
             alertSuccess()
-            limpForm(),
-            console.log(resp.data);
+            limpForm()
+            // console.log(resp.data);
         })
         .catch(err => {
             // console.log(err.response.data.errors);
@@ -73,7 +73,7 @@
 
     onMounted(() => {
         
-        console.log(form.value);
+        // console.log(form.value);
     })
 </script>
 

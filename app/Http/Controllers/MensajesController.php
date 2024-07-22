@@ -41,4 +41,14 @@ class MensajesController extends Controller
 
         return "ok";
     }
+
+    public function ConMensa(){
+        $hoy = Carbon::now()->format("Y-m-d H:i");
+
+        $mensa = Mensajes::where("FecEnvio", ">=", $hoy)
+        ->Persona()
+        ->get();
+
+        return $mensa;
+    }
 }

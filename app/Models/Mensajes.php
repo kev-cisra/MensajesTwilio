@@ -16,4 +16,12 @@ class Mensajes extends Model
     public function personal(){
         return $this->belongsTo(Personal::class, "personal_id");
     }
+
+    public function scopePersona($q){
+        $q->with([
+            "personal" => function($p){
+                $p->select("id", "nombre", "ApPat", "ApMat", "clavePais", "Telefono");
+            }
+        ]);
+    }
 }

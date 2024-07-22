@@ -49,6 +49,9 @@ Route::prefix("Mensajes")
 
     // Manda mensajes por twilio
     Route::post("SendMesa", [MensajesController::class, "SendMesaje"]);
+
+    // Consulta mensajes proximos a enviarse
+    Route::get("ConMensa", [MensajesController::class, "ConMensa"])->name("ConMensa");
 });
 
 Route::prefix("Personal")
